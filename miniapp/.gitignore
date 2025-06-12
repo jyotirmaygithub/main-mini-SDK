@@ -8,9 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-miniapp/node_modules
-miniapp/dist
-backend/node_modules
 dist
 dist-ssr
 *.local
