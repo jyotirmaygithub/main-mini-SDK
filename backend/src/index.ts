@@ -7,13 +7,13 @@ app.use(express.json());
 
 // 🆕 Function you want to trigger
 const triggerAction = () => {
-  console.log("🚀 Action triggered from frontend!");
+  console.log("🚀 runned the trigger function in backend!");
 };
 
 // 🆕 Route to trigger the function
 app.post('/api/trigger', (_req, res) => {
   triggerAction();
-  res.json({ message: 'Action triggered successfully' });
+  res.json({ message: 'response from backend' });
 });
 
 const PORT = process.env.PORT || 5000;

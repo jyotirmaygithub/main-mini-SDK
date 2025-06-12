@@ -16,11 +16,17 @@ const triggerBackend = async () => {
     console.error('Failed to trigger backend:', err);
   }
 };
+window.addEventListener('message', (event: MessageEvent) => {
+  if (event.data?.type === 'CALL_PARENT_FUNCTION') {
+    console.log('Parent received payload:', event.data.data);
+    triggerBackend(); // your function
+  }
+});
 
 
 const MiniApp: React.FC<MiniAppProps> = ({ title, children }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-4 w-full md:w-1/2 xl:w-1/3 h-64 overflow-auto flex flex-col justify-between">
+    <div className="bg-white rounded-2xl shadow-xl p-4 w-full md:w-1/2 xl:w-1/3 overflow-auto flex flex-col justify-between">
       <div>
         <h2 className="text-lg font-semibold mb-2">{title}</h2>
         <div>{children}</div>
